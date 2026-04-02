@@ -48,5 +48,13 @@ def similarity(
     run(n_vectors=n_vectors, dim=dim, n_queries=n_queries, top_k=top_k, seed=seed, output_dir=output_dir)
 
 
+@app.command()
+def env():
+    """Print all environment variables (for testing job_variables injection)."""
+    import os
+    for k, v in sorted(os.environ.items()):
+        console.print(f"{k}={v}")
+
+
 if __name__ == "__main__":
     app()
